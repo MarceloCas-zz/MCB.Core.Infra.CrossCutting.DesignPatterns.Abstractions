@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tst", "tst", "{D7F94E96-E05
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions", "src\MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions\MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.csproj", "{7877707A-64A2-4BCB-88D2-75EA697C14FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Tests", "tst\MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Tests\MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Tests.csproj", "{48270EDB-9F42-42B4-9BC7-42D3C89F22B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,12 +21,17 @@ Global
 		{7877707A-64A2-4BCB-88D2-75EA697C14FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7877707A-64A2-4BCB-88D2-75EA697C14FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7877707A-64A2-4BCB-88D2-75EA697C14FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48270EDB-9F42-42B4-9BC7-42D3C89F22B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48270EDB-9F42-42B4-9BC7-42D3C89F22B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48270EDB-9F42-42B4-9BC7-42D3C89F22B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48270EDB-9F42-42B4-9BC7-42D3C89F22B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7877707A-64A2-4BCB-88D2-75EA697C14FF} = {34FD9479-2464-4A0A-81B5-97B134E36015}
+		{48270EDB-9F42-42B4-9BC7-42D3C89F22B1} = {D7F94E96-E059-48F0-AEB7-8E4EC03384C3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A04E8D9A-79F2-42B8-9196-9D7C1EA99FB0}
