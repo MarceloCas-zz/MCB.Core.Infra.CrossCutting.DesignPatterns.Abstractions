@@ -35,9 +35,10 @@ This project is a source code of [MCB.Core.Infra.CrossCutting.DesignPatterns.Abs
 
 ## Features
 
-- Domain entities abstractions
-- Aggregations root abstractions
-- Auditable info
+- Adapter pattern abstractions
+- Factory pattern abstractions
+- Resilience pattern abstractions
+- Strategy pattern abstractions
 
 
 ## Used stack
