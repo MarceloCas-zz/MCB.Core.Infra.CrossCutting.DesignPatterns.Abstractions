@@ -25,6 +25,8 @@ namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Tests.Resilien
             resilienceConfig.OnCircuitBreakerHalfOpenAditionalHandler.Should().BeNull();
             resilienceConfig.OnCircuitBreakerOpenAditionalHandler.Should().BeNull();
             resilienceConfig.OnCircuitBreakerResetOpenAditionalHandler.Should().BeNull();
+            resilienceConfig.ExceptionHandleConfigArray.Should().HaveCount(1);
+            resilienceConfig.ExceptionHandleConfigArray[0](new Exception()).Should().BeTrue();
         }
 
         [Fact]
@@ -42,6 +44,11 @@ namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Tests.Resilien
             var onCircuitBreakerHalfOpenAditionalHandler = new Action<(Exception exception, TimeSpan circuitBreakerWaitingTime)>(((Exception exception, TimeSpan circuitBreakerWaitingTime) input) => { });
             var onCircuitBreakerOpenAditionalHandler = new Action<(Exception exception, TimeSpan circuitBreakerWaitingTime)>(((Exception exception, TimeSpan circuitBreakerWaitingTime) input) => { });
             var onCircuitBreakerResetOpenAditionalHandler = new Action<(Exception exception, TimeSpan circuitBreakerWaitingTime)>(((Exception exception, TimeSpan circuitBreakerWaitingTime) input) => { });
+            var exceptionHandleConfigArray = new[] {
+                new Func<Exception, bool>(ex => ex.GetType() == typeof(ArgumentException)),
+                new Func<Exception, bool>(ex => ex.GetType() == typeof(ArgumentNullException)),
+                new Func<Exception, bool>(ex => ex.GetType() == typeof(ArgumentOutOfRangeException))
+            };
 
             // Act
             resilienceConfig.Name = name;
@@ -53,6 +60,7 @@ namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Tests.Resilien
             resilienceConfig.OnCircuitBreakerHalfOpenAditionalHandler = onCircuitBreakerHalfOpenAditionalHandler;
             resilienceConfig.OnCircuitBreakerOpenAditionalHandler = onCircuitBreakerOpenAditionalHandler;
             resilienceConfig.OnCircuitBreakerResetOpenAditionalHandler = onCircuitBreakerResetOpenAditionalHandler;
+            resilienceConfig.ExceptionHandleConfigArray = exceptionHandleConfigArray;
 
             // Assert
             resilienceConfig.Name.Should().Be(name);
@@ -64,6 +72,7 @@ namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Tests.Resilien
             resilienceConfig.OnCircuitBreakerHalfOpenAditionalHandler.Should().Be(onCircuitBreakerHalfOpenAditionalHandler);
             resilienceConfig.OnCircuitBreakerOpenAditionalHandler.Should().Be(onCircuitBreakerOpenAditionalHandler);
             resilienceConfig.OnCircuitBreakerResetOpenAditionalHandler.Should().Be(onCircuitBreakerResetOpenAditionalHandler);
+            resilienceConfig.ExceptionHandleConfigArray.Should().BeEquivalentTo(exceptionHandleConfigArray);
         }
     }
 }

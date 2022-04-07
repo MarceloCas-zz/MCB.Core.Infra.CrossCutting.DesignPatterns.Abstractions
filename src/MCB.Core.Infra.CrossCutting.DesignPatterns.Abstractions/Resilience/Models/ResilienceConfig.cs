@@ -36,6 +36,10 @@
         public Action<(Exception exception, TimeSpan circuitBreakerWaitingTime)>? OnCircuitBreakerHalfOpenAditionalHandler { get; set; }
         public Action<(Exception exception, TimeSpan circuitBreakerWaitingTime)>? OnCircuitBreakerOpenAditionalHandler { get; set; }
         public Action<(Exception exception, TimeSpan circuitBreakerWaitingTime)>? OnCircuitBreakerResetOpenAditionalHandler { get; set; }
+        /// <summary>
+        /// Exceptions to handle in policy. Default is Exception class
+        /// </summary>
+        public Func<Exception, bool>[] ExceptionHandleConfigArray { get; set; } 
 
         // Constructors
         public ResilienceConfig()
@@ -44,6 +48,9 @@
             RetryMaxAttemptCount = DEFAULT_RETRY_MAX_ATTEMPT_COUNT;
             RetryAttemptWaitingTimeFunction = attempt => TimeSpan.FromSeconds(DEFAULT_RETRY_ATTEMPT_WAITING_TIME_IN_SECONDS);
             CircuitBreakerWaitingTimeFunction = openCount => TimeSpan.FromSeconds(DEFAULT_CIRCUIT_BREAKER_WAITING_TIME_IN_SECONDS);
+            ExceptionHandleConfigArray = new[] {
+                new Func<Exception, bool>(q => true)
+            };
         }
     }
 }
