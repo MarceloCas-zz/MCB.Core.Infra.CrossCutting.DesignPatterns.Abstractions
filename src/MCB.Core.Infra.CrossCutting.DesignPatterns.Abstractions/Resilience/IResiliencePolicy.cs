@@ -1,4 +1,5 @@
 ﻿using MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Resilience.Enums;
+using MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Resilience.Models;
 
 namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Resilience
 {
@@ -6,23 +7,14 @@ namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Resilience
     {
         // Properties - Identification
         string Name { get; }
-
-        // Properties - Retry
-        int RetryMaxAttemptCount { get; }
-        Func<int, TimeSpan> RetryAttemptWaitingTimeFunction { get; }
-        Action<(Exception exception, TimeSpan retryAttemptWaitingTime)> OnRetryAditionalHandler { get; }
+        ResilienceConfig Config { get; }
 
         // Properties - Circuit Breaker
         CircuitState CircuitState { get; }
         int CircuitBreakerOpenCount { get; }
-        Func<int, TimeSpan> CircuitBreakerWaitingTimeFunction { get; }
-        Action<(Exception exception, TimeSpan circuitBreakerWaitingTime)> OnCircuitBreakerCloseAditionalHandler { get; }
-        Action<(Exception exception, TimeSpan circuitBreakerWaitingTime)> OnCircuitBreakerHalfOpenAditionalHandler { get; }
-        Action<(Exception exception, TimeSpan circuitBreakerWaitingTime)> OnCircuitBreakerOpenAditionalHandler { get; }
-        Action<(Exception exception, TimeSpan circuitBreakerWaitingTime)> OnCircuitBreakerResetOpenAditionalHandler { get; }
 
         // Methods
-        void Config(Func<Exception, bool>[] exceptionHandlerConfigArray);
+        void Configure(Action<ResilienceConfig> config);
         
         void CloseCircuitBreakerManually();
         void OpenCircuitBreakerManually();

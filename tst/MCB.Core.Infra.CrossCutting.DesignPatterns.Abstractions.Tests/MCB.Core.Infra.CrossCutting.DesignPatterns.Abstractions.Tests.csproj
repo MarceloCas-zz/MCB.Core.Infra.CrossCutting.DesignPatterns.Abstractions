@@ -25,4 +25,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions\MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.csproj" />
+  </ItemGroup>
+
 </Project>

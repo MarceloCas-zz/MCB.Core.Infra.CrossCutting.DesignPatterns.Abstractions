@@ -7,9 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{34FD9479-246
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tst", "tst", "{D7F94E96-E059-48F0-AEB7-8E4EC03384C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions", "src\MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions\MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.csproj", "{7877707A-64A2-4BCB-88D2-75EA697C14FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions", "src\MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions\MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.csproj", "{7877707A-64A2-4BCB-88D2-75EA697C14FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Tests", "tst\MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Tests\MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Tests.csproj", "{48270EDB-9F42-42B4-9BC7-42D3C89F22B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Tests", "tst\MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Tests\MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Tests.csproj", "{48270EDB-9F42-42B4-9BC7-42D3C89F22B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
