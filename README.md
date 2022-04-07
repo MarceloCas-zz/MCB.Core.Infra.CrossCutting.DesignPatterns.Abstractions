@@ -10,7 +10,7 @@ This project is a source code of [MCB.Core.Infra.CrossCutting.DesignPatterns.Abs
 
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=MarceloCas_MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=MarceloCas_MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions)
-
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=MarceloCas_MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions&metric=coverage)](https://sonarcloud.io/summary/new_code?id=MarceloCas_MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions)
 
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=MarceloCas_MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=MarceloCas_MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=MarceloCas_MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=MarceloCas_MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions)
