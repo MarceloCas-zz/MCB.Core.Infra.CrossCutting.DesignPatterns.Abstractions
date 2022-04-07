@@ -20,7 +20,7 @@ namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Tests.Resilien
             resilienceConfig.RetryAttemptWaitingTimeFunction(default).Seconds.Should().Be(ResilienceConfig.DEFAULT_RETRY_ATTEMPT_WAITING_TIME_IN_SECONDS);
             resilienceConfig.OnRetryAditionalHandler.Should().BeNull();
             resilienceConfig.CircuitBreakerWaitingTimeFunction.Should().NotBeNull();
-            resilienceConfig.CircuitBreakerWaitingTimeFunction(default).Seconds.Should().Be(ResilienceConfig.DEFAULT_CIRCUIT_BREAKER_WAITING_TIME_IN_SECONDS);
+            resilienceConfig.CircuitBreakerWaitingTimeFunction().Seconds.Should().Be(ResilienceConfig.DEFAULT_CIRCUIT_BREAKER_WAITING_TIME_IN_SECONDS);
             resilienceConfig.OnCircuitBreakerCloseAditionalHandler.Should().BeNull();
             resilienceConfig.OnCircuitBreakerHalfOpenAditionalHandler.Should().BeNull();
             resilienceConfig.OnCircuitBreakerOpenAditionalHandler.Should().BeNull();
@@ -39,11 +39,11 @@ namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Tests.Resilien
             var retryMaxAttemptCount = 10;
             var retryAttemptWaitingTimeFunction = new Func<int, TimeSpan>(attempt => TimeSpan.FromSeconds(7));
             var onRetryAditionalHandler = new Action<(Exception exception, TimeSpan retryAttemptWaitingTime)>(((Exception exception, TimeSpan retryAttemptWaitingTime) input) => { });
-            var circuitBreakerWaitingTimeFunction = new Func<int, TimeSpan>(circuitBreakerOpenCount => TimeSpan.FromSeconds(5));
-            var onCircuitBreakerCloseAditionalHandler = new Action<(Exception exception, TimeSpan circuitBreakerWaitingTime)>(((Exception exception, TimeSpan circuitBreakerWaitingTime) input) => { });
-            var onCircuitBreakerHalfOpenAditionalHandler = new Action<(Exception exception, TimeSpan circuitBreakerWaitingTime)>(((Exception exception, TimeSpan circuitBreakerWaitingTime) input) => { });
+            var circuitBreakerWaitingTimeFunction = new Func<TimeSpan>(() => TimeSpan.FromSeconds(5));
+            var onCircuitBreakerCloseAditionalHandler = new Action(() => { });
+            var onCircuitBreakerHalfOpenAditionalHandler = new Action(() => { });
             var onCircuitBreakerOpenAditionalHandler = new Action<(Exception exception, TimeSpan circuitBreakerWaitingTime)>(((Exception exception, TimeSpan circuitBreakerWaitingTime) input) => { });
-            var onCircuitBreakerResetOpenAditionalHandler = new Action<(Exception exception, TimeSpan circuitBreakerWaitingTime)>(((Exception exception, TimeSpan circuitBreakerWaitingTime) input) => { });
+            var onCircuitBreakerResetOpenAditionalHandler = new Action(() => { });
             var exceptionHandleConfigArray = new[] {
                 new Func<Exception, bool>(ex => ex.GetType() == typeof(ArgumentException)),
                 new Func<Exception, bool>(ex => ex.GetType() == typeof(ArgumentNullException)),
@@ -67,12 +67,12 @@ namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Tests.Resilien
             resilienceConfig.RetryMaxAttemptCount.Should().Be(retryMaxAttemptCount);
             resilienceConfig.RetryAttemptWaitingTimeFunction.Should().Be(retryAttemptWaitingTimeFunction);
             resilienceConfig.OnRetryAditionalHandler.Should().Be(onRetryAditionalHandler);
-            resilienceConfig.CircuitBreakerWaitingTimeFunction.Should().Be(circuitBreakerWaitingTimeFunction);
-            resilienceConfig.OnCircuitBreakerCloseAditionalHandler.Should().Be(onCircuitBreakerCloseAditionalHandler);
-            resilienceConfig.OnCircuitBreakerHalfOpenAditionalHandler.Should().Be(onCircuitBreakerHalfOpenAditionalHandler);
+            resilienceConfig.CircuitBreakerWaitingTimeFunction.Should().BeSameAs(circuitBreakerWaitingTimeFunction);
+            resilienceConfig.OnCircuitBreakerCloseAditionalHandler.Should().BeSameAs(onCircuitBreakerCloseAditionalHandler);
+            resilienceConfig.OnCircuitBreakerHalfOpenAditionalHandler.Should().BeSameAs(onCircuitBreakerHalfOpenAditionalHandler);
             resilienceConfig.OnCircuitBreakerOpenAditionalHandler.Should().Be(onCircuitBreakerOpenAditionalHandler);
-            resilienceConfig.OnCircuitBreakerResetOpenAditionalHandler.Should().Be(onCircuitBreakerResetOpenAditionalHandler);
-            resilienceConfig.ExceptionHandleConfigArray.Should().BeEquivalentTo(exceptionHandleConfigArray);
+            resilienceConfig.OnCircuitBreakerResetOpenAditionalHandler.Should().BeSameAs(onCircuitBreakerResetOpenAditionalHandler);
+            resilienceConfig.ExceptionHandleConfigArray.Should().BeSameAs(exceptionHandleConfigArray);
         }
     }
 }

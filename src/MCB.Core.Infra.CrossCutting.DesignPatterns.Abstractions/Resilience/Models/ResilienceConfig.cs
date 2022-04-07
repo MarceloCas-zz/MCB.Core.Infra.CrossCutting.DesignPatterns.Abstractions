@@ -31,11 +31,11 @@
         /// <summary>
         /// Waiting time after circuit open. Default is 30 seconds
         /// </summary>
-        public Func<int, TimeSpan> CircuitBreakerWaitingTimeFunction { get; set; }
-        public Action<(Exception exception, TimeSpan circuitBreakerWaitingTime)>? OnCircuitBreakerCloseAditionalHandler { get; set; }
-        public Action<(Exception exception, TimeSpan circuitBreakerWaitingTime)>? OnCircuitBreakerHalfOpenAditionalHandler { get; set; }
+        public Func<TimeSpan> CircuitBreakerWaitingTimeFunction { get; set; }
+        public Action? OnCircuitBreakerCloseAditionalHandler { get; set; }
+        public Action? OnCircuitBreakerHalfOpenAditionalHandler { get; set; }
         public Action<(Exception exception, TimeSpan circuitBreakerWaitingTime)>? OnCircuitBreakerOpenAditionalHandler { get; set; }
-        public Action<(Exception exception, TimeSpan circuitBreakerWaitingTime)>? OnCircuitBreakerResetOpenAditionalHandler { get; set; }
+        public Action? OnCircuitBreakerResetOpenAditionalHandler { get; set; }
         /// <summary>
         /// Exceptions to handle in policy. Default is Exception class
         /// </summary>
@@ -47,7 +47,7 @@
             Name = string.Format(DEFAULT_NAME_PATTERN, Guid.NewGuid());
             RetryMaxAttemptCount = DEFAULT_RETRY_MAX_ATTEMPT_COUNT;
             RetryAttemptWaitingTimeFunction = attempt => TimeSpan.FromSeconds(DEFAULT_RETRY_ATTEMPT_WAITING_TIME_IN_SECONDS);
-            CircuitBreakerWaitingTimeFunction = openCount => TimeSpan.FromSeconds(DEFAULT_CIRCUIT_BREAKER_WAITING_TIME_IN_SECONDS);
+            CircuitBreakerWaitingTimeFunction = () => TimeSpan.FromSeconds(DEFAULT_CIRCUIT_BREAKER_WAITING_TIME_IN_SECONDS);
             ExceptionHandleConfigArray = new[] {
                 new Func<Exception, bool>(q => true)
             };
