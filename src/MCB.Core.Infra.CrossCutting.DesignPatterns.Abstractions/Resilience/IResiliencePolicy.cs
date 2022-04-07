@@ -7,7 +7,7 @@ namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Resilience
     {
         // Properties - Identification
         string Name { get; }
-        ResilienceConfig Config { get; }
+        ResilienceConfig ResilienceConfig { get; }
 
         // Properties - Circuit Breaker
         CircuitState CircuitState { get; }
