@@ -14,7 +14,7 @@ namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Resilience
         int CircuitBreakerOpenCount { get; }
 
         // Methods
-        void Configure(Action<ResilienceConfig> config);
+        void Configure(Action<ResilienceConfig> configureAction);
         
         void CloseCircuitBreakerManually();
         void OpenCircuitBreakerManually();
