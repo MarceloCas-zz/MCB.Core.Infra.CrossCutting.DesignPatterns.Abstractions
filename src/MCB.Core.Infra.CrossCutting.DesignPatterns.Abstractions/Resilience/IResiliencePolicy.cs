@@ -11,7 +11,8 @@ namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Resilience
 
         // Properties - Circuit Breaker
         CircuitState CircuitState { get; }
-        int CircuitBreakerOpenCount { get; }
+        int CurrentRetryCount { get; }
+        int CurrentCircuitBreakerOpenCount { get; }
 
         // Methods
         void Configure(Action<ResilienceConfig> configureAction);
