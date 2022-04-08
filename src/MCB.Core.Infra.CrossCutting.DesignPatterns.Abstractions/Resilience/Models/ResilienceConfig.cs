@@ -39,7 +39,11 @@
         /// <summary>
         /// Exceptions to handle in policy. Default is Exception class
         /// </summary>
-        public Func<Exception, bool>[] ExceptionHandleConfigArray { get; set; } 
+        public Func<Exception, bool>[] ExceptionHandleConfigArray { get; set; }
+        /// <summary>
+        /// Enable loggin. Default is true
+        /// </summary>
+        public bool IsLoggingEnable { get; set; }
 
         // Constructors
         public ResilienceConfig()
@@ -51,6 +55,7 @@
             ExceptionHandleConfigArray = new[] {
                 new Func<Exception, bool>(q => true)
             };
+            IsLoggingEnable = true;
         }
     }
 }
