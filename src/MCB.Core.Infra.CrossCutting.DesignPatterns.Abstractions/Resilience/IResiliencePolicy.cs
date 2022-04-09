@@ -19,6 +19,6 @@ namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Resilience
         
         void CloseCircuitBreakerManually();
         void OpenCircuitBreakerManually();
-        Task ExecuteAsync(Func<Task> handler);
+        Task<bool> ExecuteAsync(Func<Task> handler);
     }
 }
