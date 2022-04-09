@@ -27,6 +27,7 @@ namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Tests.Resilien
             resilienceConfig.OnCircuitBreakerResetOpenAditionalHandler.Should().BeNull();
             resilienceConfig.ExceptionHandleConfigArray.Should().HaveCount(1);
             resilienceConfig.ExceptionHandleConfigArray[0](new Exception()).Should().BeTrue();
+            resilienceConfig.IsLoggingEnable.Should().BeTrue();
         }
 
         [Fact]
@@ -38,11 +39,11 @@ namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Tests.Resilien
             var name = "Resilience Policy Demo";
             var retryMaxAttemptCount = 10;
             var retryAttemptWaitingTimeFunction = new Func<int, TimeSpan>(attempt => TimeSpan.FromSeconds(7));
-            var onRetryAditionalHandler = new Action<(Exception exception, TimeSpan retryAttemptWaitingTime)>(((Exception exception, TimeSpan retryAttemptWaitingTime) input) => { });
+            var onRetryAditionalHandler = new Action<(int currentRetryCount, TimeSpan retryAttemptWaitingTime, Exception exception)>(((int currentRetryCount, TimeSpan retryAttemptWaitingTime, Exception exception) input) => { });
             var circuitBreakerWaitingTimeFunction = new Func<TimeSpan>(() => TimeSpan.FromSeconds(5));
             var onCircuitBreakerCloseAditionalHandler = new Action(() => { });
             var onCircuitBreakerHalfOpenAditionalHandler = new Action(() => { });
-            var onCircuitBreakerOpenAditionalHandler = new Action<(Exception exception, TimeSpan circuitBreakerWaitingTime)>(((Exception exception, TimeSpan circuitBreakerWaitingTime) input) => { });
+            var onCircuitBreakerOpenAditionalHandler = new Action<(int currentCircuitBreakerOpenCount, TimeSpan circuitBreakerWaitingTime, Exception exception)>(((int currentCircuitBreakerOpenCount, TimeSpan circuitBreakerWaitingTime, Exception exception) input) => { });
             var onCircuitBreakerResetOpenAditionalHandler = new Action(() => { });
             var exceptionHandleConfigArray = new[] {
                 new Func<Exception, bool>(ex => ex.GetType() == typeof(ArgumentException)),
