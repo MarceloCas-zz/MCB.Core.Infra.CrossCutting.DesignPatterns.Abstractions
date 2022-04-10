@@ -40,7 +40,6 @@ namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Tests.Resilien
             var retryAttemptWaitingTimeFunction = new Func<int, TimeSpan>(attempt => TimeSpan.FromSeconds(7));
             var onRetryAditionalHandler = new Action<(int currentRetryCount, TimeSpan retryAttemptWaitingTime, Exception exception)>(((int currentRetryCount, TimeSpan retryAttemptWaitingTime, Exception exception) input) => { });
             var circuitBreakerWaitingTimeFunction = new Func<TimeSpan>(() => TimeSpan.FromSeconds(5));
-            var onCircuitBreakerCloseAditionalHandler = new Action(() => { });
             var onCircuitBreakerHalfOpenAditionalHandler = new Action(() => { });
             var onCircuitBreakerOpenAditionalHandler = new Action<(int currentCircuitBreakerOpenCount, TimeSpan circuitBreakerWaitingTime, Exception exception)>(((int currentCircuitBreakerOpenCount, TimeSpan circuitBreakerWaitingTime, Exception exception) input) => { });
             var onCircuitBreakerResetOpenAditionalHandler = new Action(() => { });
