@@ -21,7 +21,6 @@ namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Tests.Resilien
             resilienceConfig.OnRetryAditionalHandler.Should().BeNull();
             resilienceConfig.CircuitBreakerWaitingTimeFunction.Should().NotBeNull();
             resilienceConfig.CircuitBreakerWaitingTimeFunction().Seconds.Should().Be(ResilienceConfig.DEFAULT_CIRCUIT_BREAKER_WAITING_TIME_IN_SECONDS);
-            resilienceConfig.OnCircuitBreakerCloseAditionalHandler.Should().BeNull();
             resilienceConfig.OnCircuitBreakerHalfOpenAditionalHandler.Should().BeNull();
             resilienceConfig.OnCircuitBreakerOpenAditionalHandler.Should().BeNull();
             resilienceConfig.OnCircuitBreakerResetOpenAditionalHandler.Should().BeNull();
@@ -57,7 +56,6 @@ namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Tests.Resilien
             resilienceConfig.RetryAttemptWaitingTimeFunction = retryAttemptWaitingTimeFunction;
             resilienceConfig.OnRetryAditionalHandler = onRetryAditionalHandler;
             resilienceConfig.CircuitBreakerWaitingTimeFunction = circuitBreakerWaitingTimeFunction;
-            resilienceConfig.OnCircuitBreakerCloseAditionalHandler = onCircuitBreakerCloseAditionalHandler;
             resilienceConfig.OnCircuitBreakerHalfOpenAditionalHandler = onCircuitBreakerHalfOpenAditionalHandler;
             resilienceConfig.OnCircuitBreakerOpenAditionalHandler = onCircuitBreakerOpenAditionalHandler;
             resilienceConfig.OnCircuitBreakerResetOpenAditionalHandler = onCircuitBreakerResetOpenAditionalHandler;
@@ -69,7 +67,6 @@ namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Tests.Resilien
             resilienceConfig.RetryAttemptWaitingTimeFunction.Should().Be(retryAttemptWaitingTimeFunction);
             resilienceConfig.OnRetryAditionalHandler.Should().Be(onRetryAditionalHandler);
             resilienceConfig.CircuitBreakerWaitingTimeFunction.Should().BeSameAs(circuitBreakerWaitingTimeFunction);
-            resilienceConfig.OnCircuitBreakerCloseAditionalHandler.Should().BeSameAs(onCircuitBreakerCloseAditionalHandler);
             resilienceConfig.OnCircuitBreakerHalfOpenAditionalHandler.Should().BeSameAs(onCircuitBreakerHalfOpenAditionalHandler);
             resilienceConfig.OnCircuitBreakerOpenAditionalHandler.Should().Be(onCircuitBreakerOpenAditionalHandler);
             resilienceConfig.OnCircuitBreakerResetOpenAditionalHandler.Should().BeSameAs(onCircuitBreakerResetOpenAditionalHandler);

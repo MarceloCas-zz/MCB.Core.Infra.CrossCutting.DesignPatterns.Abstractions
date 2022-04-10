@@ -32,7 +32,6 @@
         /// Waiting time after circuit open. Default is 30 seconds
         /// </summary>
         public Func<TimeSpan> CircuitBreakerWaitingTimeFunction { get; set; }
-        public Action? OnCircuitBreakerCloseAditionalHandler { get; set; }
         public Action? OnCircuitBreakerHalfOpenAditionalHandler { get; set; }
         public Action<(int currentCircuitBreakerOpenCount, TimeSpan circuitBreakerWaitingTime, Exception exception)>? OnCircuitBreakerOpenAditionalHandler { get; set; }
         public Action? OnCircuitBreakerResetOpenAditionalHandler { get; set; }
