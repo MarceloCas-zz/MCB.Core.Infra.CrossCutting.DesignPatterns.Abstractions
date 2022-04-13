@@ -1,7 +1,7 @@
 
 # MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions
 
-This project is a source code of [MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions](https://www.nuget.org/packages/MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions/) nuget package. This package contains the abstractions for Domain Entities based on Domain-Driven Design concepts like Entities, Aggregations Root and etc.
+This project is a source code of [MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions](https://www.nuget.org/packages/MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions/) nuget package. This package contains abstractions for some design patterns.
 
 
 ## Labels
