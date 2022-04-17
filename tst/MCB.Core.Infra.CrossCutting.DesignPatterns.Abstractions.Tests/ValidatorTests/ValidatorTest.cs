@@ -23,7 +23,7 @@ namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Tests.Validato
             {
                 Id = Guid.Empty,
                 Name = string.Empty,
-                BirthDate = DateTime.UtcNow.AddDays(1),
+                BirthDate = default(DateTime),
                 IsActive = false
             };
             var underAgeCustomer = new Customer()
@@ -102,7 +102,7 @@ namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Tests.Validato
                 validationMessageCollection.Add(new ValidationMessage(ValidationMessageType.Error, code: "CustomerGuidIsRequired", description: "Customer Id is Required"));
             if(string.IsNullOrWhiteSpace(instance.Name))
                 validationMessageCollection.Add(new ValidationMessage(ValidationMessageType.Error, code: "CustomerNameIsRequired", description: "Customer Name is Required"));
-            if (instance.BirthDate > DateTime.UtcNow)
+            if (instance.BirthDate == default)
                 validationMessageCollection.Add(new ValidationMessage(ValidationMessageType.Error, code: "CustomerBirthDateIsRequired", description: "Customer BirthDate is Required"));
             else
             {
