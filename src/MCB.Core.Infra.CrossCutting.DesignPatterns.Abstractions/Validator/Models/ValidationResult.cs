@@ -11,6 +11,7 @@ namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Validator.Mode
         public IEnumerable<ValidationMessage> ValidationMessageCollection => _validationMessageCollection.AsReadOnly();
         public bool HasValidationMessage => _validationMessageCollection.Count > 0;
         public bool HasError => _validationMessageCollection.Any(q => q.ValidationMessageType == ValidationMessageType.Error);
+        public bool IsValid => !HasValidationMessage || !HasError;
 
         // Constructors
         public ValidationResult()

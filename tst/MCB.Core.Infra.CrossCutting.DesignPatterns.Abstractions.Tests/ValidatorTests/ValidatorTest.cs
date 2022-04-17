@@ -49,6 +49,7 @@ namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Tests.Validato
             // Assert
             invalidCustomerValidationResult.Should().NotBeNull();
             invalidCustomerValidationResult.HasError.Should().BeTrue();
+            invalidCustomerValidationResult.IsValid.Should().BeFalse();
             invalidCustomerValidationResult.HasValidationMessage.Should().BeTrue();
             invalidCustomerValidationResult.ValidationMessageCollection.Should().HaveCount(4);
 
@@ -70,6 +71,7 @@ namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Tests.Validato
 
             underAgeCustomerValidationResult.Should().NotBeNull();
             underAgeCustomerValidationResult.HasError.Should().BeFalse();
+            underAgeCustomerValidationResult.IsValid.Should().BeTrue();
             underAgeCustomerValidationResult.HasValidationMessage.Should().BeTrue();
             underAgeCustomerValidationResult.ValidationMessageCollection.Should().HaveCount(1);
 
@@ -79,6 +81,7 @@ namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Tests.Validato
 
             customerValidationResult.Should().NotBeNull();
             customerValidationResult.HasError.Should().BeFalse();
+            customerValidationResult.IsValid.Should().BeTrue();
             customerValidationResult.HasValidationMessage.Should().BeFalse();
             customerValidationResult.ValidationMessageCollection.Should().HaveCount(0);
 
