@@ -1,4 +1,4 @@
-﻿namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Adapters
+﻿namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Adapter
 {
     public interface IAdapter
     {
