@@ -39,7 +39,6 @@ This project is a source code of [MCB.Core.Infra.CrossCutting.DesignPatterns.Abs
 - Factory pattern abstractions
 - Resilience pattern abstractions
 - Strategy pattern abstractions
-- Validator pattern abstractions
 
 
 ## Used stack
