@@ -5,6 +5,6 @@ namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Mediator
     public interface IPublisher
     {
         void Subscribe<TSubscriber, TSubject>() where TSubscriber : ISubscriber<TSubject>;
-        void Publish<TSubject>(TSubject subject);
+        Task PublishAsync<TSubject>(TSubject subject, CancellationToken cancellationToken);
     }
 }
