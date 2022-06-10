@@ -1,8 +1,7 @@
-﻿namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Factory
+﻿namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Factory;
+
+public interface IFactoryWithParameter<out T, TParameter>
+    : IFactory<T>
 {
-    public interface IFactoryWithParameter<out T, TParameter>
-        : IFactory<T>
-    {
-        T Create(TParameter parameter);
-    }
+    T Create(TParameter parameter);
 }

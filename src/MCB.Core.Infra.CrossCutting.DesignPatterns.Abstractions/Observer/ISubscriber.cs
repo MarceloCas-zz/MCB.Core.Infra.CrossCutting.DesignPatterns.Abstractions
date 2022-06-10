@@ -1,8 +1,7 @@
-﻿namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Observer
+﻿namespace MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions.Observer;
+
+public interface ISubscriber<in TSubject>
 {
-    public interface ISubscriber<in TSubject>
-    {
-        // Methods
-        Task HandlerAsync(TSubject subject, CancellationToken cancellationToken);
-    }
+    // Methods
+    Task HandlerAsync(TSubject subject, CancellationToken cancellationToken);
 }
