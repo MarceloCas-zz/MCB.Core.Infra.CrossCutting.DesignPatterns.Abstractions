@@ -19,6 +19,8 @@ public interface IResiliencePolicy
     
     void CloseCircuitBreakerManually();
     void OpenCircuitBreakerManually();
-    Task<bool> ExecuteAsync<TInput>(Func<TInput, Task> handler);
-    Task<(bool success, TResult result)> ExecuteAsync<TInput, TResult>(Func<TInput, Task> handler);
+
+    Task<bool> ExecuteAsync<TInput>(Func<Task> handler);
+    Task<bool> ExecuteAsync<TInput>(Func<TInput, Task> handler, TInput input);
+    Task<(bool success, TOutput output)> ExecuteAsync<TInput, TOutput>(Func<TInput, Task<TOutput>> handler, TInput input);
 }
