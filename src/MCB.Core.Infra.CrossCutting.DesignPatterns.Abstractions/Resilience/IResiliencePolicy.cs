@@ -15,7 +15,7 @@ public interface IResiliencePolicy
     int CurrentCircuitBreakerOpenCount { get; }
 
     // Methods
-    void Configure(Action<ResiliencePolicyConfig> configureAction);
+    void Configure(Func<ResiliencePolicyConfig> configureAction);
     
     void CloseCircuitBreakerManually();
     void OpenCircuitBreakerManually();
