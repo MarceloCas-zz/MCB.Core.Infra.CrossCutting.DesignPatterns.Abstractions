@@ -7,7 +7,7 @@ public interface IResiliencePolicy
 {
     // Properties - Identification
     string Name { get; }
-    ResilienceConfig ResilienceConfig { get; }
+    ResiliencePolicyConfig ResilienceConfig { get; }
 
     // Properties - Circuit Breaker
     CircuitState CircuitState { get; }
@@ -15,12 +15,12 @@ public interface IResiliencePolicy
     int CurrentCircuitBreakerOpenCount { get; }
 
     // Methods
-    void Configure(Action<ResilienceConfig> configureAction);
+    void Configure(Action<ResiliencePolicyConfig> configureAction);
     
     void CloseCircuitBreakerManually();
     void OpenCircuitBreakerManually();
 
-    Task<bool> ExecuteAsync(Func<Task> handler);
-    Task<bool> ExecuteAsync<TInput>(Func<TInput, Task> handler, TInput input);
-    Task<(bool success, TOutput output)> ExecuteAsync<TInput, TOutput>(Func<TInput, Task<TOutput>> handler, TInput input);
+    Task<bool> ExecuteAsync(Func<CancellationToken, Task> handler, CancellationToken cancellationToken);
+    Task<bool> ExecuteAsync<TInput>(Func<TInput, CancellationToken, Task> handler, TInput input, CancellationToken cancellationToken);
+    Task<(bool success, TOutput output)> ExecuteAsync<TInput, TOutput>(Func<TInput, CancellationToken, Task<TOutput>> handler, TInput input, CancellationToken cancellationToken);
 }
