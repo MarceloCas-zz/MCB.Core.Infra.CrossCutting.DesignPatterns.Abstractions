@@ -24,7 +24,7 @@ public struct ResiliencePolicyConfig
     /// Waiting time after attempt failed. Default is 1 second per attempt
     /// </summary>
     public Func<int, TimeSpan> RetryAttemptWaitingTimeFunction { get; set; }
-    public Action<(int currentRetryCount, TimeSpan retryAttemptWaitingTime, Exception exception)> OnRetryAditionalHandler { get; set; }
+    public Action<(int currentRetryCount, TimeSpan retryAttemptWaitingTime, Exception exception)>? OnRetryAditionalHandler { get; set; }
 
     // Properties - Circuit Breaker
     // Properties - Retry
@@ -32,9 +32,9 @@ public struct ResiliencePolicyConfig
     /// Waiting time after circuit open. Default is 30 seconds
     /// </summary>
     public Func<TimeSpan> CircuitBreakerWaitingTimeFunction { get; set; }
-    public Action OnCircuitBreakerHalfOpenAditionalHandler { get; set; }
-    public Action<(int currentCircuitBreakerOpenCount, TimeSpan circuitBreakerWaitingTime, Exception exception)> OnCircuitBreakerOpenAditionalHandler { get; set; }
-    public Action OnCircuitBreakerCloseAditionalHandler { get; set; }
+    public Action? OnCircuitBreakerHalfOpenAditionalHandler { get; set; }
+    public Action<(int currentCircuitBreakerOpenCount, TimeSpan circuitBreakerWaitingTime, Exception exception)>? OnCircuitBreakerOpenAditionalHandler { get; set; }
+    public Action? OnCircuitBreakerCloseAditionalHandler { get; set; }
     /// <summary>
     /// Exceptions to handle in policy. Default is Exception class
     /// </summary>
