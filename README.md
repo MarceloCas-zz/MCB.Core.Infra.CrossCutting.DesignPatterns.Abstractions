@@ -7,7 +7,7 @@ This project is a source code of [MCB.Core.Infra.CrossCutting.DesignPatterns.Abs
 ## Labels
 
 [![build-and-test](https://github.com/MarceloCas/MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions/actions/workflows/build-and-test.yml/badge.svg?branch=main)](https://github.com/MarceloCas/MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions/actions/workflows/build-and-test.yml)
-
+![Nuget](https://img.shields.io/nuget/v/MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions)
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=MarceloCas_MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=MarceloCas_MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=MarceloCas_MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions&metric=coverage)](https://sonarcloud.io/summary/new_code?id=MarceloCas_MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions)
