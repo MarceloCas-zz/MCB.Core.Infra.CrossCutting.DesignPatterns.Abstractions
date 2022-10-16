@@ -8,7 +8,7 @@ public interface IAdapter
     TTarget Adapt<TTarget>(object source);
     TTarget Adapt<TTarget>(object source, TTarget existingTarget);
 
-    object Adapt(object source, object existingTarget);
+    object Adapt(object source, object target);
 
     TTarget Adapt<TSource, TTarget>(TSource source);
     TTarget Adapt<TSource, TTarget>(TSource source, TTarget existingTarget);
